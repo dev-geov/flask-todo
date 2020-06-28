@@ -3,8 +3,8 @@ from flask import (
     render_template,
 )
 
-from .models import Todo
-from . import db, create_app
+from myapp.models import Todo
+from . import db
 
 main = Blueprint('main', __name__)
 
@@ -13,6 +13,3 @@ main = Blueprint('main', __name__)
 def home():
     todo_list = Todo.query.all()
     return render_template('home/index.html', todo_list=todo_list)
-
-
-    

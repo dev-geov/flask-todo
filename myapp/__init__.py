@@ -18,4 +18,7 @@ def create_app():
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
 
+    from .todo import todo as todo_blueprint
+    app.register_blueprint(todo_blueprint)
+
     return app
