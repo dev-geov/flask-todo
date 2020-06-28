@@ -6,14 +6,14 @@
     <br>
     <div class="ui stackable menu">
         <a class="item" href="/">Home</a>
+        <a class="item add">Add</a>
         <a class="item">Profile</a>
         <a class="item" href="/logout">Logout</a>
       </div>
     <br>
     <div class="ui four column centered grid">
-        {% include "home/todo-form.html" %}
+        {% include "home/filter.html" %}
     </div>
-
     <div class="ui grid">
         
 
@@ -70,5 +70,6 @@
             </div>
         {% endfor %}
     </div>
+    {% include 'home/add-modal-form.html' %}
 </div>
 {% endblock %}

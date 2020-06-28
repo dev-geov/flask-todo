@@ -1,7 +1,6 @@
 $(document).ready(function(){
-    $('.edit').click( function(){
-        var id = $(this).attr('id');
-        console.log(id);
-        $('.ui.modal.'+id).modal('show')
+    $('.add').click( function(){
+        console.log('add')
+        $('.ui.modal.add').modal('show')
     })
 });
