@@ -29,15 +29,18 @@
                     <br>
                 {% endif%}
                 <br>
-                <a class="ui green button edit" id={{ todo.id }}>Edit</a>
-                <a class="ui blue button" href="/update/{{ todo.id }}/">
-                    {% if todo.complete %}
-                        Uncomplete
-                    {% else %}
-                        Complete
-                    {% endif %}
-                </a>
-                <a class="ui red button" href="/delete/{{ todo.id }}/">Delete</a>
+                
+                <form action="/delete/{{ todo.id }}/" method="POST">
+                    <a class="ui green button edit" id={{ todo.id }}>Edit</a>
+                    <a class="ui blue button" href="/update/{{ todo.id }}/">
+                        {% if todo.complete %}
+                            Uncomplete
+                        {% else %}
+                            Complete
+                        {% endif %}
+                    </a>
+                    <input class="ui red button" type="submit" value="Deletar">
+                </form>
             </div>
 
             <div class="ui modal {{ todo.id }}">
