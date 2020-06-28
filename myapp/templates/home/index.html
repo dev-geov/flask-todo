@@ -3,7 +3,8 @@
 {% block content %}
 <div class="ui container">
     <h1 class="ui center aligned header">Todo List Flask</h1>
-    <div class="ui grid">
+    <br>
+    <div class="ui four column centered grid">
         {% include "home/todo-form.html" %}
     </div>
 
@@ -15,9 +16,10 @@
         {% endif %}
 
         {% for todo in todo_list %}
-            <div class="five wide column">
-                <div class="ui brown inverted segment">
+            <div class="four wide column">
+                <div class="ui purple inverted segment">
                     <p class="ui header">{{ todo.id }} - {{ todo.title }}</p>
+                    <p>{{ todo.created.strftime('%d-%m-%Y') }}</p>
                     {% if todo.complete %}
                         <span class="ui green label">Complete</span>
                         <br>
@@ -28,22 +30,22 @@
                     <br>
                     
                     <form action="/delete/{{ todo.id }}/" method="POST">
-                        <a class="ui blue button edit" id={{ todo.id }}>Edit</a>
-                        <a class="ui blue button" href="/update/{{ todo.id }}/">
-                            {% if todo.complete %}
-                                Uncomplete
-                            {% else %}
-                                Complete
-                            {% endif %}
+                        <a class="ui blue button edit" id={{ todo.id }}>
+                            <i class="edit icon"></i>
                         </a>
-                        <input class="ui red button" type="submit" value="Delete">
+                        <a class="ui blue button" href="/update/{{ todo.id }}/">
+                            <i class="calendar check icon"></i>
+                        </a>
+                        <button  type="submit" class="ui red button">
+                            <i class="trash alternate icon"></i>
+                        </button>
                     </form>
                 </div>
     
                 <div class="ui modal {{ todo.id }}">
                     <i class="close icon"></i>
                     <div class="header">
-                    Edit Todo {{ todo.id }}
+                    Edit Todo: {{ todo.id }}
                     </div>
                     <div class="content">
                     <div class="description">
@@ -51,7 +53,9 @@
                             <div class="ui action input">
                                 <input type="text" name="title" value="{{ todo.title }}" />
                                 <br>
-                                <button type="submit" class="ui button">Save</button>
+                                <button type="submit" class="ui button">
+                                    <i class="save icon"></i>
+                                </button>
                             </div>
                         </form>
                     </div>

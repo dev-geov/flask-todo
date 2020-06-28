@@ -1,3 +1,3 @@
 db.sqlite
 *.pyc
-myapp/__pycache__/*
+myapp/__pycache__/

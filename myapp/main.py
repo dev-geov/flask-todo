@@ -11,5 +11,6 @@ main = Blueprint('main', __name__)
 
 @main.route('/')
 def home():
+    db.create_all()
     todo_list = Todo.query.all()
     return render_template('home/index.html', todo_list=todo_list)
