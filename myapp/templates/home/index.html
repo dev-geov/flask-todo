@@ -4,6 +4,12 @@
 <div class="ui container">
     <h1 class="ui center aligned header">Todo List Flask</h1>
     <br>
+    <div class="ui stackable menu">
+        <a class="item" href="/">Home</a>
+        <a class="item">Profile</a>
+        <a class="item" href="/logout">Logout</a>
+      </div>
+    <br>
     <div class="ui four column centered grid">
         {% include "home/todo-form.html" %}
     </div>
@@ -11,13 +17,13 @@
     <div class="ui grid">
         
 
-        {% if not todo_list %}
+        {% if not todo_count %}
             <h2 class="ui center aligned">Nothing to do...</h2>
         {% endif %}
 
         {% for todo in todo_list %}
             <div class="four wide column">
-                <div class="ui purple inverted segment">
+                <div class="ui orange inverted segment">
                     <p class="ui header">{{ todo.id }} - {{ todo.title }}</p>
                     <p>{{ todo.created.strftime('%d-%m-%Y') }}</p>
                     {% if todo.complete %}
