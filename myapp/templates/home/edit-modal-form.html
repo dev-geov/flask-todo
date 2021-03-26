@@ -1,0 +1,19 @@
+<div class="ui modal {{ todo.id }}">
+    <i class="close icon"></i>
+    <div class="header">
+    Edit Todo: {{ todo.id }}
+    </div>
+    <div class="content">
+        <div class="description">
+            <form action="/edit/{{ todo.id }}/" method="POST" class="ui form">
+                <div class="ui action input">
+                    <input type="text" name="title" value="{{ todo.title }}" />
+                    <br>
+                    <button type="submit" class="ui button">
+                        <i class="save icon"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

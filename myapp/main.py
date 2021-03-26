@@ -23,11 +23,11 @@ def home():
     print(qs)
     todo_list = None
     if qs == 'on':
-        todo_list = Todo.query.filter_by(user_id=current_user.id, complete=True)
+        todo_list = current_user.todos().filter_by(complete=True)
     elif qs == 'off':
-        todo_list = Todo.query.filter_by(user_id=current_user.id, complete=False)
+        todo_list = current_user.todos().filter_by(complete=False)
     else:
-        todo_list = Todo.query.filter_by(user_id=current_user.id)
+        todo_list = current_user.todos()
     
     todo_count = todo_list.count()
     return render_template(
