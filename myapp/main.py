@@ -20,14 +20,14 @@ main = Blueprint('main', __name__)
 def home():
     db.create_all()
     qs = request.args.get('status')
-    print(qs)
+
     todo_list = None
     if qs == 'on':
-        todo_list = current_user.todos().filter_by(complete=True)
+        todo_list = Todo.query.filter_by(complete=True, user_id=current_user.id)
     elif qs == 'off':
-        todo_list = current_user.todos().filter_by(complete=False)
+        todo_list = Todo.query.filter_by(complete=False, user_id=current_user.id)
     else:
-        todo_list = current_user.todos()
+        todo_list = Todo.query.filter_by(user_id=current_user.id)
     
     todo_count = todo_list.count()
     return render_template(
